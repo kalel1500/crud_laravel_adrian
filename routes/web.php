@@ -14,5 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('dashboard.index');
 });
+
+Route::get('/dashboard/{year?}/{month?}', 'DashboardController@index')->name('dashboard.index')->middleware('date.vars');
+Route::get('/post/{post}', 'DashboardController@post')->name('dashboard.post');

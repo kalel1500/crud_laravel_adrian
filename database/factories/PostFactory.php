@@ -11,5 +11,6 @@ $factory->define(Post::class, function (Faker $faker) {
         'title' => $faker->unique()->sentence(4, true),
         'content' => $faker->paragraphs(3, true),
         'user_id' => $user->id,
+        'created_at' => $faker->dateTimeBetween('-1 year', '1 year')
     ];
 });
